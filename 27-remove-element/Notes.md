@@ -1,1 +1,1 @@
-<h2>remove-element Notes</h2><hr>[ Time taken: 1hr 58m 34s ]
+<h2>remove-element Notes</h2><hr>[ Time taken: 2hrs 4m 15s ]
