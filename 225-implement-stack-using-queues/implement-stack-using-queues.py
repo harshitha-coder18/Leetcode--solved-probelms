@@ -8,6 +8,7 @@ class MyStack:
     def push(self, x: int) -> None:
         self.q.append(x)
 
+        # Move previous elements behind x
         for i in range(len(self.q) - 1):
             self.q.append(self.q.popleft())
 
