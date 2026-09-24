@@ -11,3 +11,4 @@ class Solution:
                 left+=1
             else:
                 right-=1
+            
