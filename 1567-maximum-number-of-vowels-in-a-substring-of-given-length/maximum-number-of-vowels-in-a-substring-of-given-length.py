@@ -1,20 +1,19 @@
 class Solution:
-    def is_vowel(self, c: str) -> bool:
-        return c in {'a', 'e', 'i', 'o', 'u'}
-
     def maxVowels(self, s: str, k: int) -> int:
-        max_vowel = 0
-        left = 0
-        vowel = 0
-
+        left=0
+        window_sum=0
+        answer=0
+        vowels="aeiou"
         for right in range(len(s)):
-            if self.is_vowel(s[right]):
-                vowel += 1
+            if s[right] in vowels:
+                window_sum+=1
+            if right-left+1==k:
+                answer=max(answer,window_sum)
 
-            if (right - left + 1) == k:
-                max_vowel = max(max_vowel, vowel)
-                if self.is_vowel(s[left]):
-                    vowel -= 1
-                left += 1
+                if s[left] in vowels:
+                    window_sum-=1
+                left+=1
+        return answer
 
-        return max_vowel
+
+        
