@@ -1,8 +1,9 @@
 class Solution:
-    def isValid(self, s):
+    def isValid(self, s: str) -> bool:
         stack = []
 
         for ch in s:
+
             if ch == '(' or ch == '[' or ch == '{':
                 stack.append(ch)
 
@@ -10,16 +11,16 @@ class Solution:
                 if not stack:
                     return False
 
-                top = stack.pop()
+                if ch == ')' and stack[-1] == '(':
+                    stack.pop()
 
-                if ch == ')' and top != '(':
-                    return False
-                if ch == ']' and top != '[':
-                    return False
-                if ch == '}' and top != '{':
+                elif ch == ']' and stack[-1] == '[':
+                    stack.pop()
+
+                elif ch == '}' and stack[-1] == '{':
+                    stack.pop()
+
+                else:
                     return False
 
-        if not stack:
-            return True
-        else:
-            return False
+        return len(stack) == 0
